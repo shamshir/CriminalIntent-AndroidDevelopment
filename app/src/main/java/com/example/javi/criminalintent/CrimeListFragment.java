@@ -43,11 +43,11 @@ public class CrimeListFragment extends Fragment {
 
         mCrimeRecyclerView = (RecyclerView) view.findViewById(R.id.crime_recycler_view);
 
-        /* Código Prueba Swipe */
-        final SwipeController swipeController = new SwipeController();
+        /* Código Prueba Swipe 1 */
+        /*final SwipeController swipeController = new SwipeController();
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(swipeController);
         itemTouchHelper.attachToRecyclerView(mCrimeRecyclerView);
-        /*mCrimeRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+        mCrimeRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
 
             @Override
             public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {

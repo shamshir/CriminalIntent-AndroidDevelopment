@@ -60,7 +60,7 @@ public class CrimeLab {
         return mCrimes;*/
         List<Crime> crimes = new ArrayList<>();
 
-        CrimeCursorWrapper cursor = queryCrimes(null, null);
+        CrimeCursorWrapper cursor = queryCrimes(null, null, CrimeTable.Cols.DATE + " DESC");
 
         try {
             cursor.moveToFirst();
@@ -84,7 +84,8 @@ public class CrimeLab {
         }*/
         CrimeCursorWrapper cursor = queryCrimes(
                 CrimeTable.Cols.UUID + " = ?",
-                new String[] { id.toString() }
+                new String[] { id.toString() },
+                null
         );
 
         try {
@@ -106,7 +107,7 @@ public class CrimeLab {
         mDatabase.update(CrimeTable.NAME, values, CrimeTable.Cols.UUID + " = ?", new String[] { uuidString });
     }
 
-    private CrimeCursorWrapper queryCrimes(String whereClause, String[] whereArgs) {
+    private CrimeCursorWrapper queryCrimes(String whereClause, String[] whereArgs, String orderByClause) {
         Cursor cursor = mDatabase.query(
                 CrimeTable.NAME,
                 null, //All columns
@@ -114,7 +115,7 @@ public class CrimeLab {
                 whereArgs,
                 null,
                 null,
-                null
+                orderByClause
         );
 
         return new CrimeCursorWrapper(cursor);

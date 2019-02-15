@@ -78,7 +78,6 @@ public class SwipeController extends Callback {
 
         currentItemViewHolder = viewHolder;
         //drawButtons(c, viewHolder);---------------------------------------------------------------
-        drawButtons(c, viewHolder);
     }
 
     private void setTouchListener(final Canvas c,
